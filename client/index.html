@@ -1,0 +1,47 @@
+<body>
+{{> body}}
+</body>
+
+<template name='body'>
+<div class="container-fluid">
+<div class='row'>
+    <div class="col-md-4">
+    {{> missing}}
+    </div>
+    <div class="col-md-4">
+    {{> i18nForm}}
+    </div>
+    <div class="col-md-4">
+    {{> search}}
+    </div> 
+</div>
+</div>
+</template>
+
+<template name="missing">
+<h2>Missing tags</h2>
+    <ul>
+    {{#each languages}}
+        <li>language: {{this}}</li>
+        <ul>
+        {{#each tags_missing this}}
+            <li>tag: {{this}}</li>
+        {{/each}}
+        </ul>
+    {{/each}}
+    </ul>
+</template>
+
+<template name="i18nForm">
+  <h2>Form</h2>
+  {{> quickForm collection="i18n" id="i18nForm" type=type}}
+</template>
+
+<template name='search'>
+    <h2>Search</h2>
+    <ul>
+    {{#each items}}
+        <li>{{language}}, {{tag}}, {{count}}, {{value}}</li>
+    {{/each}}
+    </ul>
+</template>

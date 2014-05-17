@@ -1,10 +1,8 @@
 {
   "packages": {
-    "sym-i18n": {
-      "path": "/home/miguel/dev/meteor/sym-i18n"
-    },
     "autoform": {},
     "bootstrap-3": {},
-    "bootboxjs": {}
+    "bootboxjs": {},
+    "sym-i18n": {}
   }
 }

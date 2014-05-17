@@ -5,7 +5,7 @@
 
 standard-app-packages
 coffeescript
-sym-i18n
 autoform
 bootstrap-3
 bootboxjs
+sym-i18n

@@ -5,13 +5,13 @@
 <template name='body'>
 <div class="container-fluid">
 <div class='row'>
-    <div class="col-md-4">
+    <div class="col-md-2">
     {{> missing}}
     </div>
     <div class="col-md-4">
     {{> i18nForm}}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
     {{> search}}
     </div> 
 </div>
@@ -34,14 +34,25 @@
 
 <template name="i18nForm">
   <h2>Form</h2>
-  {{> quickForm collection="i18n" id="i18nForm" type=type}}
+  {{> quickForm collection="i18n" doc=doc id="i18nForm" type=type}}
 </template>
 
 <template name='search'>
-    <h2>Search</h2>
-    <ul>
+    {{#autoForm schema="searchSchema" id="searchForm" type="method" meteormethod="searchMethod"}}
+    <fieldset>
+    <legend>Search</legend>
+    {{> afQuickField name="tag"}}
+    {{> afQuickField name="value"}}
+    <div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </fieldset>
+  {{/autoForm}}
+  <table class=table> 
     {{#each items}}
-        <li>{{language}}, {{tag}}, {{count}}, {{value}}</li>
+        <tr><td>{{language}}</td><td>{{tag}}</td><td>{{count}}</td><td>{{value}}</td>
+        <td><a _id={{_id}} class=edit> edit </a></td><td><a _id={{_id}} class=delete> delete </a></td>
+        </tr>
     {{/each}}
-    </ul>
+  </table>
 </template>

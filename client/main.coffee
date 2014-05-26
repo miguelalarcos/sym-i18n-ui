@@ -13,6 +13,10 @@ Template.i18nForm.helpers
     type: -> if Session.get("idDocument-i18n") then 'update' else 'insert'
     doc: -> i18n.findOne _id: Session.get("idDocument-i18n")
 
+Template.i18nForm.events
+    'click #reset': (e,t)->
+        Session.set 'idDocument-i18n', null
+
 Session.set "searchProperties", {tag: '', value: ''} 
         
 Template.search.helpers
